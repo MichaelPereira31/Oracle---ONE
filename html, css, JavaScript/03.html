@@ -1,0 +1,37 @@
+<html>
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+	<body>
+		<canvas heigth='400', width='600'></canvas>
+
+	<script>
+		
+        var tela = document.querySelector('canvas')
+        var pincel = tela.getContext('2d')
+
+        pincel.fillStyle = 'grey';
+        pincel.fillRect(0,0,600,400);
+
+        function desenhaCirculo(evento){
+            var x = evento.pageX - tela.offsetLeft
+            var y = evento.pageY - tela.offsetTop
+            pincel.fillStyle = 'blue'
+            pincel.beginPath()
+            pincel.arc(x,y,10,0,2*3.14)
+            pincel.fill()
+            
+            console.log(x,y)
+        }
+        
+        tela.onclick = desenhaCirculo
+
+	</script>
+	</body>
+	</html>
+	
